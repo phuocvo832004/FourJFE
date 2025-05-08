@@ -57,6 +57,8 @@ target/
 **/*.conf
 **/*.json
 **/*.yml
+!**/package.json
+!**/package-lock.json
 
 # IDE - IntelliJ
 .idea
