@@ -59,6 +59,9 @@ target/
 **/*.yml
 !**/package.json
 !**/package-lock.json
+!**/package.json
+!**/tsconfig.json
+!**/vite.config.*
 
 # IDE - IntelliJ
 .idea
