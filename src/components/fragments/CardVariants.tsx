@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from '../ui/Card';
+import { Card, CardHeader, CardBody, CardFooter } from '../ui/Card';
 
 // Card với header và footer
 export const HeaderFooterCard: React.FC<{
@@ -9,11 +9,11 @@ export const HeaderFooterCard: React.FC<{
   className?: string;
 }> = ({ title, footer, children, className }) => (
   <Card className={className}>
-    <Card.Header>
+    <CardHeader>
       <h3 className="text-lg font-semibold">{title}</h3>
-    </Card.Header>
-    <Card.Body>{children}</Card.Body>
-    {footer && <Card.Footer>{footer}</Card.Footer>}
+    </CardHeader>
+    <CardBody>{children}</CardBody>
+    {footer && <CardFooter>{footer}</CardFooter>}
   </Card>
 );
 
@@ -25,13 +25,13 @@ export const InfoCard: React.FC<{
   className?: string;
 }> = ({ title, description, icon, className }) => (
   <Card className={`flex flex-col ${className || ''}`}>
-    <Card.Body className="flex items-start space-x-4">
+    <CardBody className="flex items-start space-x-4">
       {icon && <div className="text-blue-500">{icon}</div>}
       <div>
         <h3 className="font-semibold">{title}</h3>
         <p className="text-gray-600">{description}</p>
       </div>
-    </Card.Body>
+    </CardBody>
   </Card>
 );
 
@@ -55,7 +55,7 @@ export const ProductCard: React.FC<{
         className="absolute inset-0 w-full h-full object-cover rounded-t-lg"
       />
     </div>
-    <Card.Body>
+    <CardBody>
       <h3 className="font-semibold text-lg">{name}</h3>
       <p className="font-bold text-red-600">
         {new Intl.NumberFormat('vi-VN', {
@@ -64,7 +64,7 @@ export const ProductCard: React.FC<{
         }).format(price)}
       </p>
       {description && <p className="text-sm text-gray-600 mt-2">{description}</p>}
-    </Card.Body>
+    </CardBody>
   </Card>
 );
 
@@ -76,13 +76,13 @@ export const ActionCard: React.FC<{
   className?: string;
 }> = ({ title, description, actions, className }) => (
   <Card className={className}>
-    <Card.Body>
+    <CardBody>
       <h3 className="font-semibold text-lg">{title}</h3>
       {description && <p className="text-gray-600 mt-1">{description}</p>}
-    </Card.Body>
-    <Card.Footer className="flex justify-end space-x-2">
+    </CardBody>
+    <CardFooter className="flex justify-end space-x-2">
       {actions}
-    </Card.Footer>
+    </CardFooter>
   </Card>
 );
 
@@ -98,7 +98,7 @@ export const StatCard: React.FC<{
   className?: string;
 }> = ({ label, value, icon, trend, className }) => (
   <Card className={`${className || ''}`}>
-    <Card.Body className="flex items-center justify-between">
+    <CardBody className="flex items-center justify-between">
       <div>
         <p className="text-sm text-gray-500">{label}</p>
         <p className="text-2xl font-bold">{value}</p>
@@ -115,6 +115,6 @@ export const StatCard: React.FC<{
         )}
       </div>
       {icon && <div className="text-blue-500 text-3xl">{icon}</div>}
-    </Card.Body>
+    </CardBody>
   </Card>
 ); 

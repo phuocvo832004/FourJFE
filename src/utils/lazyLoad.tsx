@@ -13,7 +13,7 @@ const DefaultFallback: React.FC = () => (
  * @param importFn - Dynamic import function
  * @param customFallback - Component hiển thị khi đang tải
  */
-export const lazyLoad = <Props extends Record<string, unknown>>(
+export const lazyLoad = <Props,>(
   importFn: () => Promise<{ default: ComponentType<Props> }>,
   customFallback: React.ReactNode = <DefaultFallback />
 ): React.FC<Props> => {
@@ -23,13 +23,13 @@ export const lazyLoad = <Props extends Record<string, unknown>>(
   logger.debug('Creating lazy loaded component');
   
   // Wrapper với Suspense
-  const LazyLoadedComponent: React.FC<Props> = (props) => (
+  const LazyLoadedComponent = (props: any) => (
     <Suspense fallback={customFallback}>
       <LazyComponent {...props} />
     </Suspense>
   );
 
-  return LazyLoadedComponent;
+  return LazyLoadedComponent as React.FC<Props>;
 };
 
 /**
@@ -51,7 +51,7 @@ export const prefetchComponent = (
  * @param maxRetries - Số lần retry tối đa
  * @param fallback - Component hiển thị khi đang tải
  */
-export function lazyLoadWithRetry<Props extends Record<string, unknown>>(
+export function lazyLoadWithRetry<Props,>(
   importFn: () => Promise<{ default: ComponentType<Props> }>,
   maxRetries = 2,
   fallback: React.ReactNode = <DefaultFallback />
@@ -86,11 +86,11 @@ export function lazyLoadWithRetry<Props extends Record<string, unknown>>(
   const LazyComponentWithRetry = lazy(loadWithRetry);
   
   // Trả về component với Suspense
-  return (props) => (
+  return ((props: any) => (
     <Suspense fallback={fallback}>
       <LazyComponentWithRetry {...props} />
     </Suspense>
-  );
+  )) as React.FC<Props>;
 }
 
 export default lazyLoad;
@@ -99,7 +99,7 @@ export default lazyLoad;
  * HOC cho lazy loading page components
  * Sử dụng cho các routes
  */
-export function withLazyLoading<P>(
+export function withLazyLoading<P,>(
   importFunc: () => Promise<{ default: React.ComponentType<P> }>,
   loadingComponent: React.ReactNode = (
     <div className="flex items-center justify-center min-h-screen">
@@ -109,9 +109,9 @@ export function withLazyLoading<P>(
 ) {
   const LazyComponent = React.lazy(importFunc);
 
-  return (props: P) => (
+  return ((props: any) => (
     <Suspense fallback={loadingComponent}>
       <LazyComponent {...props} />
     </Suspense>
-  );
+  )) as React.FC<P>;
 } 

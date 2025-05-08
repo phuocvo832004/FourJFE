@@ -82,8 +82,9 @@ export class Logger {
     const timestamp = this.config.includeTimestamp ? `[${new Date().toISOString()}]` : '';
     const namespaceStr = this.namespace ? `[${this.namespace}]` : '';
     const levelStr = `[${level}]`;
+    const dataString = data ? ` ${JSON.stringify(data)}` : '';
     
-    return `${timestamp}${namespaceStr}${levelStr} ${message}`;
+    return `${timestamp}${namespaceStr}${levelStr} ${message}${dataString}`;
   }
 
   /**

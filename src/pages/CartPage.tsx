@@ -5,11 +5,6 @@ import ErrorNotification from '../components/ErrorNotification';
 import { CartItem } from '../types/index';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
 
-// Định nghĩa kiểu dữ liệu cho kết quả của updateQuantity nếu cần
-interface UpdateQuantityResult {
-  stockWarnings?: Record<string, number>;
-}
-
 const CartPageContent: React.FC = () => {
   const { items, removeItem, updateQuantity, clearCart, total, fetchCart } = useCart();
   const [isLoading, setIsLoading] = useState(true);

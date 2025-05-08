@@ -232,15 +232,15 @@ const SellerOrdersPage: React.FC = () => {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                            order.paymentInfo.paymentStatus === 'COMPLETED' 
+                            order.paymentInfo?.paymentStatus === 'COMPLETED' 
                               ? 'bg-green-100 text-green-800' 
-                              : order.paymentInfo.paymentStatus === 'CANCELLED'
+                              : order.paymentInfo?.paymentStatus === 'CANCELLED'
                               ? 'bg-red-100 text-red-800'
                               : 'bg-yellow-100 text-yellow-800'
                           }`}>
-                            {order.paymentInfo.paymentStatus === 'COMPLETED' 
+                            {order.paymentInfo?.paymentStatus === 'COMPLETED' 
                               ? 'Đã thanh toán' 
-                              : order.paymentInfo.paymentStatus === 'CANCELLED'
+                              : order.paymentInfo?.paymentStatus === 'CANCELLED'
                               ? 'Đã hủy'
                               : 'Chờ thanh toán'}
                           </span>

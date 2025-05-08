@@ -45,6 +45,8 @@ const SellerProductsPage: React.FC = () => {
             image: 'https://via.placeholder.com/200',
             category: 'Electronics',
             sellerId: 'seller1',
+            stockQuantity: 100,
+            isActive: true
           },
           {
             id: 'p2',
@@ -54,6 +56,8 @@ const SellerProductsPage: React.FC = () => {
             image: 'https://via.placeholder.com/200',
             category: 'Fashion',
             sellerId: 'seller1',
+            stockQuantity: 50,
+            isActive: true
           },
           {
             id: 'p3',
@@ -63,6 +67,8 @@ const SellerProductsPage: React.FC = () => {
             image: 'https://via.placeholder.com/200',
             category: 'Electronics',
             sellerId: 'seller1',
+            stockQuantity: 25,
+            isActive: true
           },
           {
             id: 'p4',
@@ -72,6 +78,8 @@ const SellerProductsPage: React.FC = () => {
             image: 'https://via.placeholder.com/200',
             category: 'Fashion',
             sellerId: 'seller1',
+            stockQuantity: 75,
+            isActive: true
           },
           {
             id: 'p5',
@@ -81,6 +89,8 @@ const SellerProductsPage: React.FC = () => {
             image: 'https://via.placeholder.com/200',
             category: 'Home & Living',
             sellerId: 'seller1',
+            stockQuantity: 30,
+            isActive: true
           },
         ];
         

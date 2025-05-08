@@ -160,4 +160,5 @@ type CardComponent = typeof Card & {
 (Card as CardComponent).Body = CardBody;
 (Card as CardComponent).Footer = CardFooter;
 
-export { Card }; 
+export { Card };
+export type { CardComponent }; 
