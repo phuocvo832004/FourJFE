@@ -62,7 +62,7 @@ target/
 !**/package.json
 !**/tsconfig.json
 !**/vite.config.*
-
+!**/tsconfig.*.json
 # IDE - IntelliJ
 .idea
 *.iws
